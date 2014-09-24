@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootswap &middot; Rapid Prototyping For Bootstrap</title>
+    <title>Dawn &middot; Virtual Assistant for Email</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -26,9 +26,9 @@
 
   <body>
 
-<div id="app">   
-<p>Hit c, h, j, m, c to apply css classes container, hero-unit, jumbotron, masthead, container-narrow to app body</p>
-<p>Hit the left arrow to change icon colors, up arrow to change navbar color, right arrow to change overall theme.</p>
+<div id="app">  
+<p>Hit q to change icon color, r to change navbar color, s to change the overall theme, new themes can be created and added to those cycled through upon request</p> 
+<p>Hit c, h, j, m, n to apply css classes container, hero-unit, jumbotron, masthead, container-narrow to app body</p>
 <!--form id="signupForm" action="https://examples.webscript.io/signup" method="post" class="form-horizontal">
   <div class="control-group">
       <input type="text" name="username" placeholder="Choose a username"/>
@@ -113,7 +113,7 @@
 	});
 	*/
 	var debug=false;
-	Build("Bootswap");
+	Build("Dawn");
 	function Build(appName){BuildNav(appName);BuildDebug();BuildFooter(appName);}
 	function BuildNav(appName){
 		$("<div>",{class:"navbar nav",id:"navbar",html:
@@ -124,7 +124,7 @@
 		           		$("<li>", {html:$("<a>",{html:"Home",href:"index.html"}).prepend($("<i>",{class:"icon-home"}))}),
 	            		$("<li>", {html:$("<a>",{html:"About",href:""}).prepend($("<i>",{class:"icon-file"}))}),
 		           		$("<li>", {html:$("<a>",{html:"Blog",href:""}).prepend($("<i>",{class:"icon-pencil"}))}),
-		           		$("<li>", {html:$("<a>",{html:"Contact",href:"mailto:bootswapdev@gmail.com"}).prepend($("<i>",{class:"icon-envelope"}))})),
+		           		$("<li>", {html:$("<a>",{html:"Contact",href:"mailto:getdawnapp@gmail.com"}).prepend($("<i>",{class:"icon-envelope"}))})),
 		           	$("<div>",{class:"pull-right",id:"signUpSignInPullRight",html:
 		           		$("<ul>",{class:"nav pull-right"}).append(
 		           			$("<li>",{class:"divider-vertical"}),
@@ -138,7 +138,7 @@
 		$("<div>",{class:"footer",html:
 	   		$("<p>",{class:"paragraph",html:	
 	           	$("<div>",{class:"row"}).append(
-	           		$("<div>",{class:"span6",html:"&nbsp;&copy;&nbsp;"+appName+"2012"}))})}).appendTo("body")}
+	           		$("<div>",{class:"span6",html:"&nbsp;&copy;&nbsp;"+appName+"2014"}))})}).appendTo("body")}
 	function BuildDebug(appName){
 		$("<div>",{class:"container",html:
 	   		$("<div>",{class:"well",html:	
@@ -158,7 +158,7 @@
 		var key = (e) ? e.which : event.keyCode;if(debug)alert(key);
 		for(var i=0;i<keyBindings.length;i++){if(key==keyBindings[i][1]){change("#app",keyBindings[i][0]);}}
 		writeDocument(['carousel.html','fluid.html','hero.html','marketing-alternate.html','marketing-narrow.html','signin.html','starter-template.html','sticky-footer.html'][key-49]);
-		eval(['change("i","icon-white");','change("#navbar","navbar-inverse");','changeStyle();','changeInnerStyles();'][key-37]);
+		eval(['change("i","icon-white");','change("#navbar","navbar-inverse");','changeStyle();'][key-81]);
 		showMain();showInput(key);
 		return true;
 	}
