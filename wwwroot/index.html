@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootswap &middot; Rapid Prototyping For Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="../assets/css/bootstrap10.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+<div id="app">   
+<p>Hit c, h, j, m, c to apply css classes container, hero-unit, jumbotron, masthead, container-narrow to app body</p>
+<p>Hit the left arrow to change icon colors, up arrow to change navbar color, right arrow to change overall theme.</p>
+<!--form id="signupForm" action="https://examples.webscript.io/signup" method="post" class="form-horizontal">
+  <div class="control-group">
+      <input type="text" name="username" placeholder="Choose a username"/>
+  </div>
+  <div class="control-group">
+      <input type="password" name="password" placeholder="Choose a password"/>
+  </div><h2><button type="submit" class="btn" style="width: 220px">Sign Up</button></h2>
+</form>
+<form id="loginForm" action="https://examples.webscript.io/login" method="post" class="form-horizontal">
+ 
+  <div class="control-group">
+      <input type="text" name="username" placeholder="Enter username"/>
+  </div>
+  <div class="control-group">
+      <input type="password" name="password" placeholder="Enter password"/>
+  </div> <h2><button type="submit" class="btn" style="width: 220px">Sign In</button></h2>
+</form-->
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>  
+	<script>
+	/*
+	$(function () {
+	 $('#signupForm').submit(function (e) {
+	  e.preventDefault();
+	  var username = $(this).find('input[name="username"]').val();
+	  var password = $(this).find('input[name="password"]').val();
+	  $(this).find('img').toggleClass('hide', false);
+	  $(this).find('button').prop('disabled', true);
+	  $.ajax('https://examples.webscript.io/signup', {
+	   type: 'post',
+	   data: { username: username, password: password },
+	   statusCode: {
+	    200: function () { alert('User created successfully.'); $('#signupForm').find('input').val(''); },
+	    409: function () { alert('That username is already taken.'); $(this).find('img').toggleClass('hide', false); },
+	
+	    //hack for IE8/9 XDomainRequest, which doesn't report actual status codes
+	    404: function () { alert('That username is already taken.'); $(this).find('img').toggleClass('hide', false); }
+	   },
+	   complete: function () {
+	    $('#signupForm').find('button').prop('disabled', false);
+	    $('#signupForm').find('img').addClass('hide');
+	   }
+	  });
+	 });
+	 $('#loginForm').submit(function (e) {
+	  e.preventDefault();
+	  var username = $(this).find('input[name="username"]').val();
+	  var password = $(this).find('input[name="password"]').val();
+	  $(this).find('img').toggleClass('hide', false);
+	  $(this).find('button').prop('disabled', true);
+	  $.ajax('https://examples.webscript.io/login', {
+	   type: 'post',
+	   data: { username: username, password: password },
+	   statusCode: {
+	    200: function () { alert('Password accepted.'); $('#loginForm').find('input').val(''); },
+	    403: function () { alert('User authentication failed.'); },
+	    //hack for IE8/9 XDomainRequest, which doesn't report actual status codes
+	    404: function () { alert('User authentication failed.'); }
+	   },
+	   complete: function () {
+	    $('#loginForm').find('button').prop('disabled', false);
+	    $('#loginForm').find('img').addClass('hide');
+	   }
+	  });
+	 });
+	});
+	*/
+	var debug=false;
+	Build("Bootswap");
+	function Build(appName){BuildNav(appName);BuildDebug();BuildFooter(appName);}
+	function BuildNav(appName){
+		$("<div>",{class:"navbar nav",id:"navbar",html:
+	    	$("<div>",{class:"navbar-inner",html:	
+	           	$("<div>",{class:"container"}).append(
+	           		$("<a>",{class:"brand",href:"index.html",html:appName}),
+		           	$("<ul>",{class:"nav"}).append(
+		           		$("<li>", {html:$("<a>",{html:"Home",href:"index.html"}).prepend($("<i>",{class:"icon-home"}))}),
+	            		$("<li>", {html:$("<a>",{html:"About",href:""}).prepend($("<i>",{class:"icon-file"}))}),
+		           		$("<li>", {html:$("<a>",{html:"Blog",href:""}).prepend($("<i>",{class:"icon-pencil"}))}),
+		           		$("<li>", {html:$("<a>",{html:"Contact",href:"mailto:bootswapdev@gmail.com"}).prepend($("<i>",{class:"icon-envelope"}))})),
+		           	$("<div>",{class:"pull-right",id:"signUpSignInPullRight",html:
+		           		$("<ul>",{class:"nav pull-right"}).append(
+		           			$("<li>",{class:"divider-vertical"}),
+		           			$("<li>", {html:$("<a>",{html:"Sign Up",href:"signup.html"}).prepend($("<i>",{class:"icon-cog"}))}),
+		           			$("<li>", {html:$("<a>",{html:"Sign In",id:"signInButton",href:"javascript:ToggleSignInDropdown();"}).prepend($("<i>",{class:"icon-user"}))}))}),
+		           	$("<div>",{class:"pull-right hide",html:
+		           		$("<ul>",{class:"pull-right navbar nav navbar-inverse",id:"helloUsernamePullRight"}).append(
+		           			$("<li>",{class:"divider-vertical"}),
+		           			$("<li>", {html:$("<a>",{html:"Hello ",class:"btn-link",href:"signup.html"}).append($("<a>",{class:"btn-link",href:"javascript:ToggleUserProfileDropdown()",id:"usernameButton"}))}))}))})}).prependTo("body")}
+	function BuildFooter(appName){
+		$("<div>",{class:"footer",html:
+	   		$("<p>",{class:"paragraph",html:	
+	           	$("<div>",{class:"row"}).append(
+	           		$("<div>",{class:"span6",html:"&nbsp;&copy;&nbsp;"+appName+"2012"}))})}).appendTo("body")}
+	function BuildDebug(appName){
+		$("<div>",{class:"container",html:
+	   		$("<div>",{class:"well",html:	
+	           	$("<div>",{class:"row"}).append(
+					$("<div>",{class:"span2",html:$("<label>",{id:"styleLabel"})}),
+					$("<div>",{class:"span2",html:$("<label>",{id:"mainLabel"})}),
+					$("<div>",{class:"span2",html:$("<label>",{id:"inputLabel"})}),
+					$("<div>",{class:"span2",html:$("<input>",{id:"appNameInput"})}))})}).prependTo("body")}
+	function showStyle(){document.getElementById("styleLabel").innerHTML="Css Theme: "+$('link')[0].href.substr($('link')[0].href.length-15,11);}
+	function showMain(){document.getElementById("mainLabel").innerHTML="Main Theme: "+$('#app')[0].className;}
+	function showInput(input){document.getElementById("inputLabel").innerHTML="Last Input: "+input;}				
+	function writeDocument(content){$.get("../assets/examples/"+content,function(data){document.open('text/html');document.write(data);document.close();});}
+	function change(x,y){for(var i=0;i<$(x).length;i++){if($(x)[i].className.indexOf(y)==-1){$(x)[i].className=$(x)[i].className+" "+y;}else{$(x)[i].className=$(x)[i].className.replace(y,"");}}}
+	function changeStyle() {var styleNum=parseInt($('link')[0].href.substring($('link')[0].href.length - 6, $('link')[0].href.length - 4))+1;if ($('link')[0].href.substring($('link')[0].href.length - 6, $('link')[0].href.length - 4) == 16){styleNum=10;}$('link')[0].href = $('link')[0].href.replace("bootstrap"+$('link')[0].href.substring($('link')[0].href.length - 6, $('link')[0].href.length - 4), "bootstrap"+styleNum); showStyle();}
+	var keyBindings = [['container','67'],['hero-unit','72'],['jumbotron','74'],['masthead','77'],['container-narrow','78']];
+	document.onkeydown = function(e){
+		var key = (e) ? e.which : event.keyCode;if(debug)alert(key);
+		for(var i=0;i<keyBindings.length;i++){if(key==keyBindings[i][1]){change("#app",keyBindings[i][0]);}}
+		writeDocument(['carousel.html','fluid.html','hero.html','marketing-alternate.html','marketing-narrow.html','signin.html','starter-template.html','sticky-footer.html'][key-49]);
+		eval(['change("i","icon-white");','change("#navbar","navbar-inverse");','changeStyle();','changeInnerStyles();'][key-37]);
+		showMain();showInput(key);
+		return true;
+	}
+	window.onload(showStyle(),showMain(),showInput());
+	</script>
+  </body>
+</html>
